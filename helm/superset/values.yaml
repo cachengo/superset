@@ -249,7 +249,7 @@ supersetNode:
   ## Annotations to be added to supersetNode pods
   podAnnotations: {}
   ## Labels to be added to supersetNode pods
-  podLabels: {}
+  # podLabels: {}
 ##
 ## Superset worker configuration
 supersetWorker:
@@ -271,7 +271,7 @@ supersetWorker:
   ## Annotations to be added to supersetWorker pods
   podAnnotations: {}
   ## Labels to be added to supersetWorker pods
-  podLabels: {}
+  # podLabels: {}
 ##
 ## Superset beat configuration (to trigger scheduled jobs like reports)
 supersetCeleryBeat:
@@ -295,7 +295,7 @@ supersetCeleryBeat:
   ## Annotations to be added to supersetCeleryBeat pods
   podAnnotations: {}
   ## Labels to be added to supersetCeleryBeat pods
-  podLabels: {}
+  # podLabels: {}
 ##
 ## Init job configuration
 init:
