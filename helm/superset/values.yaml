@@ -159,7 +159,7 @@ configMountPath: "/app/pythonpath"
 extraConfigMountPath: "/app/configs"
 
 image:
-  repository: apache/superset
+  repository: cachengo/superset
   tag: latest
   pullPolicy: IfNotPresent
 
@@ -225,11 +225,11 @@ supersetNode:
     - ". {{ .Values.configMountPath }}/superset_bootstrap.sh; /usr/bin/run-server.sh"
   connections:
     # Change in case of bringing your own redis and then also set redis.enabled:false
-    redis_host: '{{ template "superset.fullname" . }}-redis-headless'
+    redis_host: 'redis-server.redis-server'
     # redis_password: superset
     redis_port: "6379"
     # You need to change below configuration incase bringing own PostgresSQL instance and also set postgresql.enabled:false
-    db_host: '{{ template "superset.fullname" . }}-postgresql'
+    db_host: 'postgres.default'
     db_port: "5432"
     db_user: superset
     db_pass: superset
@@ -364,7 +364,7 @@ postgresql:
   ##
   ## Use the PostgreSQL chart dependency.
   ## Set to false if bringing your own PostgreSQL.
-  enabled: true
+  enabled: false
   ##
   ## The name of an existing secret that contains the postgres password.
   existingSecret:
@@ -412,7 +412,7 @@ redis:
   ## If you are bringing your own redis, you can set the host in supersetNode.connections.redis_host
   ##
   ## Set to false if bringing your own redis.
-  enabled: true
+  enabled: false
   ##
   ## Set architecture to standalone/replication
   architecture: standalone
@@ -434,10 +434,13 @@ redis:
   master:
     ##
     ## Image configuration
-    # image:
+    image:
       ##
       ## docker registry secret names (list)
       # pullSecrets: nil
+      repository: redis
+      tag: latest
+      pullPolicy: IfNotPresent
     ##
     ## Configure persistance
     persistence:
