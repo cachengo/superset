@@ -234,9 +234,9 @@ supersetNode:
     # You need to change below configuration incase bringing own PostgresSQL instance and also set postgresql.enabled:false
     db_host: 'postgres-service'
     db_port: "5432"
-    db_user: superset
-    db_pass: superset
-    db_name: superset
+    db_user: Y2l0dXN1c2Vy
+    db_pass: Y2l0dXNwYXNzd29yZA==
+    db_name: postgres
   env: {}
   forceReload: false # If true, forces deployment to reload on each upgrade
   initContainers:
