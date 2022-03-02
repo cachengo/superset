@@ -35,8 +35,10 @@ serviceAccount:
 bootstrapScript: |
   #!/bin/bash
   rm -rf /var/lib/apt/lists/* && \
-  apt-get update -y \
+  apt-get update && \
   apt-get install -y libpq-dev && \
+  pip uninstall psycopg2-binary && \ 
+  pip install psycopg2 && \
   pip install \
     redis==3.5.3 && \
   if [ ! -f ~/bootstrap ]; then echo "Running Superset with uid {{ .Values.runAsUser }}" > ~/bootstrap; fi
