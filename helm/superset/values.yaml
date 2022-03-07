@@ -164,7 +164,7 @@ extraConfigMountPath: "/app/configs"
 image:
   repository: cachengo/superset
   tag: latest
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
 
 imagePullSecrets: []
 
